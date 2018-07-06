@@ -56,7 +56,9 @@ main {
     display: flex;
     flex-wrap: wrap;
     border-radius: 40px;
-    margin: 0;
+    margin-left: 30%;
+    margin-right: 30%;
+    bottom: 0;
 }
 
 .spacing{
@@ -85,11 +87,27 @@ main {
     font-size: 100px;
 }
 
+#red {
+    background-color: red;
+}
+#blue {
+    background-color: blue;
+}
+#yellow {
+    background-color: rgb(235, 239, 22);
+}
+#green {
+    background-color: green;
+}
 
 .simon-button:hover {
     border: 3px solid #ccc0b3;
+    
 }
  
+.flash {
+    box-shadow: 10px 20px 30px blue;
+}
 
 footer {
     position: fixed;
