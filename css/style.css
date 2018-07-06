@@ -1,0 +1,128 @@
+
+body {
+    /*background-color: black; */
+    margin: 0;
+    padding:0;
+}
+
+h1 {
+    font-family: 'Cabin Sketch', cursive;
+    background-color: black;
+    letter-spacing: 1px;
+    font-weight: 400;
+    font-size: 200px;
+    margin: 0;
+    text-align: center; 
+    }
+
+
+main {
+    background-color: yellowgreen;
+    display: block;
+    margin: 0;
+}    
+
+#center {
+    margin-right: 50%;
+    display:inline-flex;
+}
+
+.btn {
+    border: 10px ridge purple;
+    border-radius: 30%;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+/* On mouse-over */
+.btn:hover {background: yellow;}
+
+.game {color: green;}
+.instructions {color: dodgerblue;}
+.rounds {color: orange;}
+
+
+.container{
+    height: 450px;
+    width : 450px;
+    border: solid 3px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 40px;
+    margin: 0;
+}
+
+.spacing{
+    margin-right:20px;
+}
+
+.row {
+    width: 528px;
+    height: 176px;
+    margin: 0 auto;
+    clear: both;
+
+  }
+
+.simon-button {
+    cursor: pointer;
+    height: 180px;
+    width: 180px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 5px solid black;
+    float: left;
+    text-align: center;
+    line-height: 160px;
+    color: #6c6c6c;
+    font-size: 100px;
+}
+
+
+.simon-button:hover {
+    border: 3px solid #ccc0b3;
+}
+ 
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-transform: uppercase;
+  
+    background-color: #0D2C40;
+    color: yellow;
+    font-size: 14px;
+    letter-spacing: .08em;
+    font-weight: 500;
+}
+.copyright {
+    float: left;
+    font-family: "Raleway" , sans-serif;
+}
+
+.message {
+    float: right;
+    font-family: "Raleway" , sans-serif;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    content: " ";
+    clear: both;
+    height: 0;
+    font-size: 0;
+}
+.name {
+    color: rgb(218, 190, 33);
+    font-weight: 700;
+}
