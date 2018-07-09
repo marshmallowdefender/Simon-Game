@@ -38,210 +38,244 @@ where they can pick their number of rounds
 
 //I can win the game by getting a series of 20 steps correct. I am notified of my victory, then the game starts over.
 
+let roundCounter = 0;
+let gameTargetPattern = [];
+let playerPattern = [];
+let startBtn = _elem('.game');
 
+const MAX_NUM_ROUNDS = 5;
+const COLORS = ["red", "blue", "yellow", "green"];
+const BUTTONS = {
+    red: _elem('#red'),
+    blue: _elem('#blue'),
+    yellow: _elem('#yellow'),
+    green: _elem('#green')
+};
+//Checks the players move against the computer. if the player moves are equal to the round, then
+// debugging to console
+var test = true;
 
-let thisRound = 0;
-    var round = 5;
-    var playerMoves = [];
-    var startBtn = elem('.game');
+// INTRO DEMO
+// WORKS - DONT TOUCH
+function quickDemo(colorArray, intervalTimer) {
+    let colorIndex = 0;
 
-    const buttons = {
-        red: elem('#red'),
-        blue: elem('#blue'),
-        yellow: elem('#yellow'),
-        green: elem('#green')
-    };
+    const interval = setInterval(function () {
+        if (colorIndex < 1) {
+            _changeBackground(colorArray, colorIndex);
+        } else if (colorIndex > 0 && colorIndex < COLORS.length) {
+            _changeBackground(colorArray, colorIndex);
+        }
 
-    var targetPattern  = [];
-    const colors = ["red","blue","yellow","green"];
-    
-    function randomColor() {
-        return colors[Math.floor(Math.random()*colors.length)];
+        if (colorIndex === COLORS.length) {
+            resetAllButtonColors();
+            clearInterval(interval);
+        }
+        colorIndex++;
+    }, intervalTimer);
+}
+
+function resetAllButtonColors() {
+    let buttonElements = _elem(".simon-button", true);
+
+    console.log('numButtons', buttonElements.length);
+
+    buttonElements.forEach(function (button) {
+        _changeBackgroundOfElement(button);
+    });
+}
+
+function _changeBackground(colorArray, index) {
+    let color = colorArray[index];
+
+    _changeBackgroundOfColor(color);
+}
+
+function _changeBackgroundOfColor(color) {
+    let squareElement = _elem('#' + color);
+
+    _changeBackgroundOfElement(squareElement);
+}
+
+function _changeBackgroundOfElement(squareElement) {
+    console.log('Entered `_changeBackgroundOfElement`');
+
+    let color = squareElement.id;
+
+    console.log('color', color);
+
+    squareElement.classList.toggle(`has-background-${color}-active`);
+}
+
+function playGame() {
+    gameTargetPattern.push(_randomColor());
+
+    _playPattern(gameTargetPattern);
+}
+
+function _playPattern(colorArray) {
+    colorArray.forEach(color => {
+        _flashColor(color);
+    });
+}
+
+function _flashColor(color) {
+    for(let count = 0; count < 2; count++) {
+        _changeBackgroundOfColor(color);
+
+        setTimeout(() => console.log('count', count), 1000);
     }
+}
 
-    function gamePattern(){
-        ++thisRound;
-        let random = randomColor();
+function gamePattern() {
+    roundCounter++;
+    let randomColor = _randomColor();
 
-        targetPattern.push(random);
+    gameTargetPattern.push(randomColor);
 
-        debug(true, 0);
+    // wat
+    debug(true, 0);
 
-        // different implementation needed
-        patternDemo(targetPattern, 1000);
+    // different implementation needed
+    patternDemo(gameTargetPattern, 1000);
+}
+
+function checkPlayerInput(click) {
+
+    checkPlayerInput.push(checkColor(click));
+
+    checkMove();
+
+    if (checkPlayerInput.length === roundCounter) {
+
+        debug(test, 1, click, roundCounter);
+
+        nextRound();
+    } else {
+        debug(test, 0, click, roundCounter);
     }
+}
 
-    //Checks the players move against the computer. if the player moves are equal to the round, then
-   // debugging to console
-    var test = true;
-
-    function playerPattern(click) {
-        
-        playerMoves.push(checkColor(click));
-
-        checkMove();
-        
-        if(playerMoves.length === thisRound){
-            
-            debug(test, 1, click, thisRound);
-
-            nextRound();
+function checkMove() {
+    if (checkPlayerInput[checkPlayerInput.length - 1] !== gameTargetPattern[checkPlayerInput.length - 1]) {
+        console.log("Wrong Move!");
+    } else {
+        alert("Correct Move!")
+        //console.log("Correct Move!");
+        if (roundCounter == MAX_NUM_ROUNDS) {
+            console.log("Yay you did it!");
         } else {
-            debug(test, 0, click, thisRound);
+            // VALIDATION ELSE WHERE?? 
+            //console.log("Time for the next round!");
+            //nextRound();
         }
     }
+}
 
-        
-        function checkMove() { 
-            if (playerMoves[playerMoves.length - 1] !== targetPattern[playerMoves.length - 1]) { 
-                console.log("Wrong Move!");
-            } else {
-                alert("Correct Move!")
-                //console.log("Correct Move!");
-                if (thisRound == round){
-                    console.log ("Yay you did it!");
-                } else{
-                    // VALIDATION ELSE WHERE?? 
-                    //console.log("Time for the next round!");
-                    //nextRound();
-                }
-            }
-        }
-
-
-
-
-        //Checks player input color to see if it matches the color computer displayed
-        function checkColor(input){
-            if(input == "red"){
-                return colors[0];
-            } if(input == "blue"){
-                return colors[1];
-            } if(input == "yellow"){
-                return colors[2];
-            } if(input == "green"){
-                return colors[3];
-            }
-        }
-
-        function nextRound() {
-            roundReset();
-            gamePattern();
-        }
-
-
-
-    // ADDED
-    ////////////////////////////////////////////
-    function roundReset() {
-        playerMoves = [];
+//Checks player input color to see if it matches the color computer displayed
+function checkColor(input) {
+    if (input == "red") {
+        return COLORS[0];
     }
+    if (input == "blue") {
+        return COLORS[1];
+    }
+    if (input == "yellow") {
+        return COLORS[2];
+    }
+    if (input == "green") {
+        return COLORS[3];
+    }
+}
 
+function nextRound() {
+    roundReset();
+    gamePattern();
+}
 
+// ADDED
+////////////////////////////////////////////
+function roundReset() {
+    checkPlayerInput = [];
+}
 
-
-
-    function debug(status, section, color, round){
-        if(status){
-            switch(section){
-                case 0:
-                    console.log("New Pattern");
-                    console.log(targetPattern);
-                    break;
-                case 1:
-                    console.log("Color Selected: " + color);
-                    console.log("Round: " + round);
-                    console.log("\n");
-                    break;
-                case 2: 
-                    console.log("Player Pattern");
-                    console.log(playerMoves);
-                    console.log("Computer Pattern");
-                    console.log(targetPattern);
-                    console.log("\n\n");
-                    break;
-                case 3:
-                    break;
-            }
+function debug(status, section, color, round) {
+    if (status) {
+        switch (section) {
+            case 0:
+                console.log("New Pattern");
+                console.log(gameTargetPattern);
+                break;
+            case 1:
+                console.log("Color Selected: " + color);
+                console.log("Round: " + round);
+                console.log("\n");
+                break;
+            case 2:
+                console.log("Player Pattern");
+                console.log(checkPlayerInput);
+                console.log("Computer Pattern");
+                console.log(gameTargetPattern);
+                console.log("\n\n");
+                break;
+            case 3:
+                break;
         }
     }
-        
-        // CRUDE METHOD
-        function resetAllButtonColors(){
-            let btns = elem(".simon-button", true);
+}
 
-            btns.forEach(function(button, index){
-                button.style.backgroundColor = "";
-            });
-        }
+// CRUDE METHOD
+// 2 COLORS SELECTED THAT ARE THE SAME - PLAYER COULDNT TELL W/O DELAY FROM RESET
+// FUCKING CHAAAAAAAAAD
+// function patternDemo(colorPatternArray, intervalTimer) {
+//     let colorIndex = 0;
 
-   
-        // 2 COLORS SELECTED THAT ARE THE SAME - PLAYER COULDNT TELL W/O DELAY FROM RESET
-        function patternDemo(arr, timer){
-            let colorIndex = 0;
-            
-            var preview = setInterval(function(){
-                resetAllButtonColors();
-                
-                setTimeout(function(){
-                    
-                }, 1000);
+//     setInterval(function () {
+//         resetAllButtonColors();
 
-                elem("#" + arr[colorIndex]).style.backgroundColor = arr[colorIndex]; //error pops up here "TypeError: Cannot read property 'style' of null"
-                
-                if(colorIndex === colors.length){
-                    clearInterval(preview);
-                }
-                ++colorIndex;
-            }, timer);
-        }
+//         setTimeout(function () {
+//             //does nothing but wait
+//             console.log('Just waiting in `patternDemo` line 191... Gimme a sec :)')
+//         }, 1000);
 
-        // INTRO DEMO
-        // WORKS - DONT TOUCH
-        function quickDemo(arr, timer){
-            let colorIndex = 0;
-            
-            var preview = setInterval(function(){
-                if(colorIndex < 1){
-                    changeBackground(arr, colorIndex);
-                } else if( colorIndex > 0 && colorIndex < colors.length ){
-                    changeBackground(arr, colorIndex, true);
-                    changeBackground(arr, colorIndex);
-                }
+//         const square = _elem("#" + colorPatternArray[colorIndex]);
 
-                // TEST
-                // console.log(colorIndex + " " + colors.length);
+//         _setColorOfSquare(square, colorPatternArray[colorIndex]);
 
-                if(colorIndex === colors.length){
-                    changeBackground(arr, colorIndex, true);
-                    clearInterval(preview);
-                }
-                ++colorIndex;
-            }, timer);
-        }
+//         if (colorIndex === colors.length) {
+//             clearInterval(preview);
+//         }
+//         ++colorIndex;
+//     }, intervalTimer);
+// }
 
-        function changeBackground(colorArray, index, blank){
-            if(blank){
-                elem("#" +  colorArray[index-1]).style.backgroundColor = "";
-            } else {
-                elem("#" +  colorArray[index]).style.backgroundColor = colors[index];
-            }
-        }
 
-        quickDemo(colors, 500);
-
-function reloadPage() {
-     window.location.reload();
-}   
-
+//gross
+function _reloadPage() {
+    window.location.reload();
+}
 
 // GENERIC HELPER!!!
-function elem(name, all){
-    if(all){
+function _elem(name, shouldFetchAll) {
+    if (shouldFetchAll) {
         return document.querySelectorAll(name);
     } else {
         return document.querySelector(name);
     }
 }
 
+function _randomColor() {
+    return COLORS[Math.floor(Math.random() * COLORS.length)];
+}
 
+function _setColorOfSquare(squareElement, color) {
+    console.log('squareElement', squareElement);
+    console.log('color', color);
+
+    squareElement.style.backgroundColor = color;
+}
+
+
+
+// START GAME
+quickDemo(COLORS, 500);

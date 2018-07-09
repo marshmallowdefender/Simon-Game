@@ -72,48 +72,6 @@ main {
     clear: both;
 
   }
-.simon-button {
-    cursor: pointer;
-    height: 180px;
-    width: 180px;
-    margin: 5px;
-    border-radius: 5px;
-    border: 5px solid black;
-    float: left;
-    text-align: center;
-    line-height: 160px;
-    color: #6c6c6c;
-    font-size: 100px;
-    background-color: rgb(233, 213, 213);
-}
-
-#red:hover {
-    background-color: red;
-}
-#blue:hover {
-    background-color: blue;
-}
-#yellow:hover{
-    background-color: rgb(235, 239, 22);
-}
-#green:hover {
-    background-color: green;
-}
-
-
-#red {
-    border: 3px solid red;
-}
-#blue {
-    border: 3px solid blue;
-}
-#yellow {
-    border: 3px solid goldenrod;
-}
-#green {
-    border: 3px solid green;
-}
-
 
 footer {
     position: fixed;
