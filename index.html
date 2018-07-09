@@ -1,53 +1,50 @@
 
 
-<!DOCTYPE htm>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
-<html>
-    
+<html>    
     <head>
         <meta charset="UTF-8">
         <title>Simon</title>
         <link href="css/style.css" rel="stylesheet" type="text/css">
-        
         <link href="https://fonts.googleapis.com/css?family=Droid+Serif|Raleway:400,500,600,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
     </head>
-
     <body>
-            <header>
-                 <h1>
-                     <span style='color: blue'>S</span>
-                     <span style='color: red'>I</span>
-                    <span style='color: yellow'>M</span>
-                    <span style='color: green'>O</span>
-                    <span style='color: blue'>N</span>
-                 </h1>    
-             </header>
-                <main>
-                        <button class="btn game">PLAY GAME</button>
-                        <button class="btn instructions"id="center">INSTRUCTIONS</button>
-                        <button class="btn rounds" >CHOOSE ROUNDS</button> 
-                </main>
-<div class="container" >
-    <div class ="row">
-        <div class = "simon-button" id = "red" class ="flash"></div>
-        <div class = "simon-button" id = "blue"></div>
-    </div>
-    <div class = "row">
-        <div class = "simon-button" id = "yellow"></div>
-        <div class = "simon-button" id = "green"></div>
-    </div>
-</div>
+        <header>
+            <h1>
+                <span style='color: blue'>S</span>
+                <span style='color: red'>I</span>
+                <span style='color: yellow'>M</span>
+                <span style='color: green'>O</span>
+                <span style='color: blue'>N</span>
+            </h1>    
+        </header>
+        <main>
+            <button class="btn game" onclick="gamePattern()">PLAY GAME</button>
+          <!--  <button class="btn instructions" id="center"> INSTRUCTIONS</button> -->
+            <button class="btn reload" onclick ="reloadPage()">RESTART</button> 
+        </main>
+        
+        <div class="container">
+            <div class="row">
+                <div class="simon-button" id="red" onclick="playerPattern(this.id)"></div>
+                <div class="simon-button" id="blue" onclick="playerPattern(this.id)"></div>
+            </div>
+            <div class="row">
+                <div class="simon-button" id="yellow" onclick="playerPattern(this.id)"></div>
+                <div class="simon-button" id="green" onclick="playerPattern(this.id)"></div>
+            </div>
+        </div>
 
-</body>
 
-<script src="js/main.js"></script>
-    <footer class="clearfix">
-        <p class="copyright"> Copyright 2018 </p>
-        <p class="message"> Created by
-            <span class="name">Ashley Thompson</span>
-        </p>
-    </footer>
-
+        <footer class="clearfix">
+            <p class="copyright"> Copyright 2018 </p>
+            <p class="message"> Created by
+                <span class="name">Ashley Thompson</span>
+            </p>
+        </footer>
+        <script src="js/main.js"></script>
+    </body>
 </html>
