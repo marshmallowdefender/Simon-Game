@@ -121,10 +121,9 @@ function _playPattern(colorArray) {
 
 function _flashColor(color) {
     for (let count = 0; count < 2; count++) {
-        _changeBackgroundOfColor(color);
-
         setTimeout(function () {
             console.log('count', count)
+            _changeBackgroundOfColor(color);
         }, 1000);
     }
 }
@@ -253,7 +252,7 @@ function debug(status, section, color, round) {
 
 
 //gross
-function _reloadPage() {
+function reloadPage() {
     window.location.reload();
 }
 
