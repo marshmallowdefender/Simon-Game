@@ -120,10 +120,12 @@ function _playPattern(colorArray) {
 }
 
 function _flashColor(color) {
-    for(let count = 0; count < 2; count++) {
+    for (let count = 0; count < 2; count++) {
         _changeBackgroundOfColor(color);
 
-        setTimeout(() => console.log('count', count), 1000);
+        setTimeout(function () {
+            console.log('count', count)
+        }, 1000);
     }
 }
 
