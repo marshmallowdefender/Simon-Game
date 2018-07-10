@@ -1,0 +1,73 @@
+.glow {
+    animation-name: squareGlow;
+    animation-duration: 1.0s;
+    /*animation-delay: 0.2s;*/
+}
+@keyframes squareGlow {
+    from {background-color: default;}
+    50% {opacity: 0.5;}
+    to {background-color: default;}
+}
+
+.simon-button {
+    cursor: pointer;
+    height: 180px;
+    width: 180px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 5px solid black;
+    float: left;
+    text-align: center;
+    line-height: 160px;
+    color: #6c6c6c;
+    font-size: 100px;
+}
+
+.simon-button:hover, .simon-button:active {
+    animation: squareGlow;
+}
+
+.has-background-red {
+    background-color: red;
+    border: 3px solid red;
+}
+
+/* .has-background-red:hover, .has-background-red:active {
+    /*background-color: lightcoral;
+    animation: squareGlow;
+}
+*/
+
+
+.has-background-blue{
+    background-color: blue;
+    border: 3px solid blue;
+}
+
+/*.has-background-blue:hover {
+    background-color: lightblue;
+    animation: squareGlow;
+}
+*/
+
+
+.has-background-green{
+    background-color: green;
+    border: 3px solid green;
+}
+
+/* .has-background-green:hover {
+    background-color: lightgreen;
+} */
+
+
+
+.has-background-yellow {
+    background-color: yellow;
+    border: 3px solid yellow;
+}
+
+/* .has-background-yellow:hover {
+    background-color: lightyellow;
+} */
+
