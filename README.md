@@ -13,6 +13,8 @@ Things to be added later:
 5)Add sounds when buttons play and when player clicks on them
 6)Edit simon-button to add event.target instead bootstrp onclick events 
 7)Use toggle for the button animation
+8)Add instructions popup to the game
+9)Add function so that player can input their name and get personalized messages as they play, such as "Good job John!"
 
 
 References for code:

@@ -1,9 +1,10 @@
 /*
--Write a function so that when the player clicks on intructions, a pop-up window with the 
+Pseudocode for game function
+-Write a function so that when the player clicks on instructions, a pop-up window with the 
 instructions shows up
 -Write a function so that when the player clicks on the choose rounds button, a drop down menu shows up 
-where they can pick their number of rounds
--Write a function so that player can input their name into the game.
+ where they can pick their number of rounds (did not get to do)
+-Write a function so that player can input their name into the game.(did not do)
 -Write a function so that when player clicks "Game start", the game screen resets to a new game
 -Write a function so that also when player clicks "Game start", the first color lights up
     -Write and function that loops through the colors everytime the player makes the right choices
@@ -12,30 +13,21 @@ where they can pick their number of rounds
     -The function for choosing the colors must be randomnly generated each time and increase in number 
     as the rounds go on.
     -Write a function to record the score as they go along in the game.
-//User Clicks "Start Game"
-//Game flashes a color
-//User replicates and "clicks" the same color
-    //If color clicked is correct, game adds on another color to the first color
-    //If color clicked is wrong, "Game Over" and game board/score resets to zero
-//ADD EVENT SO THAT WHEN USER CLICKS A SQUARE IT FLASHES THAT COLOR
+User Clicks "Start Game"
+Game flashes a color
+User replicates and "clicks" the same color
+If color clicked is correct, game adds on another color to the first color
+If color clicked is wrong, "Game Over" and game board/score resets to zero
+ADD EVENT SO THAT WHEN USER CLICKS A SQUARE IT FLASHES THAT COLOR
 */
 
 
 //I am presented with a random series of button presses.
-
 //Each time I input a series of button presses correctly, I see the same series of button presses but with an additional step.
-
 //I hear a sound that corresponds to each button both when the series of button presses plays, and when I personally press a button.
+//If I want to restart, I can hit a button to do so
+//I can win the game by getting a series of 5 steps correct. I am notified of my victory, then the game starts over.
 
-//If I press the wrong button, I am notified that I have done so, and that series of button presses starts again to remind me of the pattern so I can try again.
-
-//I can see how many steps are in the current series of button presses.
-
-//If I want to restart, I can hit a button to do so,game will return to a single step.
-
-//I can play where if I get a button press wrong, it notifies me that I have done so, and the game restarts at a new random series of button presses.
-
-//I can win the game by getting a series of 20 steps correct. I am notified of my victory, then the game starts over.
 
 
 //elem short for element, grabs the element that you pass it
