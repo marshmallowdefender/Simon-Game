@@ -1,4 +1,7 @@
-.glow {
+
+
+/*https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp*/
+.blink {
     animation-name: squareGlow;
     animation-duration: 1.0s;
     /*animation-delay: 0.2s;*/

@@ -37,6 +37,9 @@ where they can pick their number of rounds
 
 //I can win the game by getting a series of 20 steps correct. I am notified of my victory, then the game starts over.
 
+
+//elem short for element, grabs the element that you pass it
+
 let _roundCounter = 0;
 let _gameTargetPattern = [];
 let _playerPattern = [];
@@ -53,6 +56,9 @@ const BUTTONS = {
     green: _elem('#green')
 };
 
+//Adds player color choice to the empty array playerPattern and checks to see if the choice matches the generated choice.
+//If it does, the next round plays unless the number of rounds equals the max number of rounds then game is won.
+//Else the next round starts
 function addPlayerInput(color) {
     playerPattern.push(color);
 
@@ -67,28 +73,33 @@ function addPlayerInput(color) {
     }
 }
 
+//When playGame button is clicked, the gameboard is cleared and a new round is started
 function playGame() {
     _clearGame();
     _startNextRound();
 }
 
+//Simple function to "restart" the game by reloading the page.
 function reloadPage() {
     window.location.reload();
 }
 
+//Function to change the background color of the individual buttons making it active
 function _changeBackgroundOfColor(color, isActive) {
     let squareElement = BUTTONS[color];
     _changeBackgroundOfElement(squareElement, isActive);
 }
 
+//Function to change the background color of the buttons by adding and removing the class animation "blink"
 function _changeBackgroundOfElement(squareElement, isActive) {
     if (isActive) {
-        squareElement.classList.add('glow');
+        squareElement.classList.add('blink');
     } else {
-        squareElement.classList.remove('glow');
+        squareElement.classList.remove('blink');
     }
 }
 
+//Checks to see if the player choices match the generated choices
 function _checkMatch(targetArray, playerArray) {
     //if playerArray has 2 elements, matchIndex = 1
     let matchIndex = playerArray.length - 1;
@@ -103,12 +114,14 @@ function _checkMatch(targetArray, playerArray) {
     }
 }
 
+//Function to clear the baord game and reset variables
 function _clearGame() {
     roundCounter = 0;
     _gameTargetPattern = [];
     playerPattern = [];
 }
 
+//function to get elements
 function _elem(name, shouldFetchAll) {
     if (shouldFetchAll) {
         return document.querySelectorAll(name);
@@ -117,6 +130,7 @@ function _elem(name, shouldFetchAll) {
     }
 }
 
+//Function to animate the color changes and the duration of the color change
 function _flashColor(color) {
     _changeBackgroundOfColor(color, true);
     setTimeout(function() {
@@ -127,6 +141,8 @@ function _flashColor(color) {
 function _isRoundOver(targetArray, playerArray) {
     return targetArray.length === playerArray.length;
 }
+
+
 
 function _playPattern(colorArray) {
     console.log("Color Pattern", colorArray);
@@ -145,6 +161,7 @@ function _randomColor() {
     return COLORS[Math.floor(Math.random() * COLORS.length)];
 }
 
+//When the next round starts, clear the playerPattern array and push new incremented colors to the array
 function _startNextRound() {
     roundCounter++;
 
