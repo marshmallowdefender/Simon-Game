@@ -32,6 +32,8 @@ ADD EVENT SO THAT WHEN USER CLICKS A SQUARE IT FLASHES THAT COLOR
 
 //elem short for element, grabs the element that you pass it
 
+
+//Global Variable for the game
 let _roundCounter = 0;
 let _gameTargetPattern = [];
 let _playerPattern = [];
