@@ -3,8 +3,8 @@
 /*https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp*/
 .blink {
     animation-name: squareGlow;
-    animation-duration: 1.0s;
-    /*animation-delay: 0.2s;*/
+    animation-duration: 0.3s;
+    animation-delay: 0.1s
 }
 @keyframes squareGlow {
     from {background-color: default;}
@@ -26,7 +26,7 @@
     font-size: 100px;
 }
 
-.simon-button:hover, .simon-button:active {
+/*.simon-button:hover,*/ .simon-button:active {
     animation: squareGlow;
 }
 

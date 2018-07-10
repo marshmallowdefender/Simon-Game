@@ -37,9 +37,9 @@ let _gameTargetPattern = [];
 let _playerPattern = [];
 let _startButton = _elem('.game');
 
-const MAX_NUM_ROUNDS = 5;
-const ANIMATION_DURATION = 2000;
-const INTERVAL_DURATION = 2000;
+const MAX_NUM_ROUNDS = 10;
+const ANIMATION_DURATION = 300;
+const INTERVAL_DURATION = 700;
 const COLORS = ["red", "blue", "yellow", "green"];
 const BUTTONS = {
     red: _elem('#red'),
