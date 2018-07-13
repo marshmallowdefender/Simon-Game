@@ -3,7 +3,7 @@ Game of Simon
 
 _Recreation of the classic hasbro game *Simon* in your browser!_
 
-This ia a game that tests a players memory. The player must follow a sequence of colors that flash on colored buttons. The sequence increases by one new color every turn. If the player fails to follow the sequence correctly, the game is over. 
+This is a game that tests a players memory. The player must follow a sequence of colors that flash on colored buttons. The sequence increases by one new color every turn. If the player fails to follow the sequence correctly, the game is over. 
 
 ## Motivation
 
