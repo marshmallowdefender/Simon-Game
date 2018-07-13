@@ -17,7 +17,7 @@ I was motivated to make this game because not only do I love memory games (keeps
 
 ## Code Example
 \\\javascript
-/Global Variable for the game
+//Global Variable for the game
 let _roundCounter = 0;
 let _gameTargetPattern = [];
 let _playerPattern = [];
@@ -50,15 +50,13 @@ function addPlayerInput(color) {
         }
     }
 }
-///
+\\\
 
 
 
 ## Gameshots & Wireframes
 
 ![Wireframe](/WireFrames/SimonGame.png)
-
-![Wireframe](/WireFrames/Wireframe1_Title Screen.jpg)
 
 ![Wireframe](/WireFrames/GameWonPop-up.png)
 
