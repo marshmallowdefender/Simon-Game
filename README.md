@@ -72,7 +72,10 @@ More can be found in the Wireframes folder.
 [GitHub] (https://code.visualstudio.com/)
 
 
-### Unsolved Problems:
+## How to Use:
+To test it out yourself, feel free to fork and clone my repo. If you want to play the actual game, I provided the link above to the game!
+
+## Unsolved Problems:
 
 Most of the unsolved problems lay in what I didn't get to add into the game. 
 
