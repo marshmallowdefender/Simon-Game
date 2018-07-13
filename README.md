@@ -16,7 +16,7 @@ I was motivated to make this game because not only do I love memory games (keeps
 
 
 ## Code Example
-\\\javascript
+```javascript
 //Global Variable for the game
 let _roundCounter = 0;
 let _gameTargetPattern = [];
@@ -50,7 +50,7 @@ function addPlayerInput(color) {
         }
     }
 }
-\\\
+```
 
 
 
