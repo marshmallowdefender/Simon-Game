@@ -3,48 +3,78 @@ Game of Simon
 
 _Recreation of the classic hasbro game *Simon* in your browser!_
 
-This project is a simple recreation of the game Simon. 
+This ia a game that tests a players memory. The player must follow a sequence of colors that flash on colored buttons. The sequence increases by one new color every turn. If the player fails to follow the sequence correctly, the game is over. 
 
 ## Motivation
 
-This was the first project assignment in the coding camp that I am participating in. The creation of this 
+I was motivated to make this game because not only do I love memory games (keeps the mind fresh), but I also wanted to challenge myself to do something new. I had previously made a simple card match game before but coding this was a whole new and exciting challenge.
 
 
 ## Game Link
 
 [GitHub] (https://marshmallowdefender.github.io/Simon-Game/)
 
-## Build Status
+
+## Code Example
+\\\javascript
+/Global Variable for the game
+let _roundCounter = 0;
+let _gameTargetPattern = [];
+let _playerPattern = [];
+let _startButton = _elem('.game');
+
+const MAX_NUM_ROUNDS = 10;
+const ANIMATION_DURATION = 300;
+const INTERVAL_DURATION = 700;
+const COLORS = ["red", "blue", "yellow", "green"];
+const BUTTONS = {
+    red: _elem('#red'),
+    blue: _elem('#blue'),
+    yellow: _elem('#yellow'),
+    green: _elem('#green')
+};
+
+//Adds player color choice to the empty array playerPattern and checks to see if the choice matches the generated choice.
+//If it does, the next round plays unless the number of rounds equals the max number of rounds then game is won.
+//Else the next round starts
+function addPlayerInput(color) {
+    playerPattern.push(color);
+
+    _checkMatch(_gameTargetPattern, playerPattern);
+
+    if (_isRoundOver(_gameTargetPattern, playerPattern)) {
+        if (roundCounter >= MAX_NUM_ROUNDS) {
+            alert('Congratulations! You won!');
+        } else {
+            _startNextRound();
+        }
+    }
+}
+///
 
 
-## Code Style
 
-
-## Screenshots
-
-### Gameshots & Wireframes
+## Gameshots & Wireframes
 
 ![Wireframe](/WireFrames/SimonGame.png)
 
+![Wireframe](/WireFrames/Wireframe1_Title Screen.jpg)
+
+![Wireframe](/WireFrames/GameWonPop-up.png)
+
+![Wireframe](/WireFrames/Wireframe3_GameWin.jpg)
+
+More can be found in the Wireframes folder.
 
 
-## Tech/framework used
-
-#### Built with
+## Built with
 
 [GitHub] (https://code.visualstudio.com/)
 
 
-## Code Example
-
-
-
-
-
-
 ### Unsolved Problems:
-1)Buttons flashing twice when its the same color
-2)
+
+Most of the unsolved problems lay in what I didn't get to add into the game. 
 
 ### Things to be added later:
 1. Round Amount (player can pick their amount of rounds).
@@ -58,6 +88,7 @@ This was the first project assignment in the coding camp that I am participating
 1. Add function so that player can input their name and get personalized messages as they play, such as "Good job John!"
 1. Add text to show player what round they are on.
 1. Add option where if they get a move wrong, the game repeats the pattern.
+1. Increase pattern speed after a certain number of rounds.
 
 
 ## Credits
